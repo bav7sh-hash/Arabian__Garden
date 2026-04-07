@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madurai Military Hotel - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Login Screen -->
+    <div class="admin-login" id="adminLogin">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="/images/logo.jpg" alt="Madurai Military Hotel" style="height: 100px; border-radius: 12px; box-shadow: var(--shadow-lg);">
+                <h1>Savoria Admin</h1>
+                <p>Sign in to manage your restaurant</p>
+            </div>
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" placeholder="admin@maduraimilitaryhotel.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    Sign In
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <p class="login-hint">Demo: admin@maduraimilitaryhotel.com / admin123</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="admin-dashboard" id="adminDashboard">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 12px; color: inherit;">
+                    <img src="/images/logo.jpg" alt="Madurai Military Hotel" style="height: 44px; border-radius: 6px; box-shadow: var(--shadow-sm);">
+                    <span class="logo-text">Savoria</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-group-label">Quick Access</div>
+                <a href="kitchen.html" class="nav-item-link">
+                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                         <circle cx="12" cy="12" r="10" />
+                         <polyline points="12 6 12 12 16 14" />
+                     </svg>
+                     Kitchen Dashboard
+                 </a>
+                 <a href="index.html" class="nav-item-link">
+                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                         <path d="M3 3h18v18H3z"/>
+                         <path d="M3 9h18"/>
+                         <path d="M9 3v18"/>
+                     </svg>
+                     Customer Menu
+                 </a>
+                <div class="nav-group-label">Admin Management</div>
+                <button class="nav-item active" data-section="overview">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    Overview
+                </button>
+                <button class="nav-item" data-section="menu">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 3h18v18H3z"/>
+                        <path d="M3 9h18"/>
+                        <path d="M3 15h18"/>
+                        <path d="M9 3v18"/>
+                    </svg>
+                    Menu Items
+                </button>
+                <button class="nav-item" data-section="offers">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    Offers
+                </button>
+                <button class="nav-item" data-section="orders">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    Orders
+                </button>
+                <button class="nav-item" data-section="reports">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                    </svg>
+                    Reports
+                </button>
+                <button class="nav-item" data-section="settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    Settings
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logoutBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Overview Section -->
+            <section class="admin-section active" id="overviewSection">
+                <div class="section-header">
+                    <h1>Dashboard Overview</h1>
+                    <span class="current-date" id="currentDate"></span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon orders-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="todayOrders">0</span>
+                            <span class="stat-text">Today's Orders</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon revenue-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="todayRevenue">₹0</span>
+                            <span class="stat-text">Today's Revenue</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon menu-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3h18v18H3z"/>
+                                <path d="M3 9h18"/>
+                                <path d="M9 3v18"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="totalItems">0</span>
+                            <span class="stat-text">Menu Items</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon pending-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="pendingOrders">0</span>
+                            <span class="stat-text">Pending Orders</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-orders">
+                    <h2>Recent Orders</h2>
+                    <div class="orders-table-container">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Table</th>
+                                    <th>Items</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentOrdersTable">
+                                <!-- Orders will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Section -->
+            <section class="admin-section" id="menuSection">
+                <div class="section-header">
+                    <h1>Menu Management</h1>
+                    <button class="add-btn" id="addMenuItemBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        Add Item
+                    </button>
+                </div>
+                <div class="menu-filters">
+                    <select id="menuCategoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="starters">Starters</option>
+                        <option value="biryani">Biryani</option>
+                        <option value="mains">Main Course</option>
+                        <option value="breads">Breads</option>
+                        <option value="desserts">Desserts</option>
+                        <option value="beverages">Beverages</option>
+                    </select>
+                    <input type="text" id="menuSearchInput" placeholder="Search menu items...">
+                </div>
+                <div class="menu-items-grid" id="adminMenuGrid">
+                    <!-- Menu items will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Offers Section -->
+            <section class="admin-section" id="offersSection">
+                <div class="section-header">
+                    <h1>Offer Banners</h1>
+                    <button class="add-btn" id="addOfferBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        Add Offer
+                    </button>
+                </div>
+                <div class="offers-grid" id="adminOffersGrid">
+                    <!-- Offers will be loaded dynamically -->
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section class="admin-section" id="ordersSection">
+                <div class="section-header">
+                    <h1>Orders Management</h1>
+                    <div class="orders-filters">
+                        <select id="ordersDateFilter">
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="all">All Time</option>
+                        </select>
+                        <select id="ordersStatusFilter">
+                            <option value="all">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="preparing">Preparing</option>
+                            <option value="ready">Ready</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="orders-table-container">
+                    <table class="orders-table full-width">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Table</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Time</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="allOrdersTable">
+                            <!-- Orders will be loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section class="admin-section" id="reportsSection">
+                <div class="section-header">
+                    <h1>Sales Reports</h1>
+                </div>
+                <div class="reports-grid">
+                    <div class="report-card">
+                        <h3>Daily Sales Report</h3>
+                        <p>Export today's sales data as CSV</p>
+                        <button class="export-btn" id="exportDailyBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Export Daily CSV
+                        </button>
+                    </div>
+                    <div class="report-card">
+                        <h3>Weekly Sales Report</h3>
+                        <p>Export this week's sales summary</p>
+                        <button class="export-btn" id="exportWeeklyBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Export Weekly CSV
+                        </button>
+                    </div>
+                    <div class="report-card">
+                        <h3>Monthly Sales Report</h3>
+                        <p>Export monthly sales analytics</p>
+                        <button class="export-btn" id="exportMonthlyBtn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Export Monthly CSV
+                        </button>
+                    </div>
+                </div>
+                <div class="automation-section">
+                    <h2>Automation Settings</h2>
+                    <div class="automation-card">
+                        <div class="automation-info">
+                            <h4>Auto-delete Old Orders</h4>
+                            <p>Automatically remove completed orders older than 24 hours</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoDeleteToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="automation-card">
+                        <div class="automation-info">
+                            <h4>Daily Report Generation</h4>
+                            <p>Automatically generate and save daily sales report</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoReportToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section class="admin-section" id="settingsSection">
+                <div class="section-header">
+                    <h1>Settings</h1>
+                </div>
+                <div class="settings-grid">
+                    <div class="settings-card">
+                        <h3>Restaurant Information</h3>
+                        <form class="settings-form" id="restaurantForm">
+                            <div class="form-group">
+                                <label>Restaurant Name</label>
+                                <input type="text" id="restaurantName" value="Madurai Military Hotel">
+                            </div>
+                            <div class="form-group">
+                                <label>Currency Symbol</label>
+                                <input type="text" id="currencySymbol" value="₹">
+                            </div>
+                            <button type="submit" class="save-btn">Save Changes</button>
+                        </form>
+                    </div>
+                    <div class="settings-card">
+                        <h3>QR Code Generator</h3>
+                        <p>Generate QR codes for your tables</p>
+                        <div class="qr-generator">
+                            <div class="form-group">
+                                <label>Table Number</label>
+                                <input type="number" id="qrTableNumber" min="1" value="1">
+                            </div>
+                            <button class="generate-btn" id="generateQRBtn">Generate QR Code</button>
+                            <div class="qr-preview" id="qrPreview"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Menu Item Modal -->
+    <div class="modal-overlay" id="menuItemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="menuModalTitle">Add Menu Item</h2>
+                <button class="modal-close" id="menuModalClose">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <form class="modal-form" id="menuItemForm">
+                <input type="hidden" id="menuItemId">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Item Name</label>
+                        <input type="text" id="itemName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" id="itemPrice" step="0.01" min="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="itemCategory" required>
+                            <option value="starters">Starters</option>
+                            <option value="mains">Main Course</option>
+                            <option value="desserts">Desserts</option>
+                            <option value="beverages">Beverages</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" id="itemImage">
+                    </div>
+                </div>
+                <div class="form-row checkboxes">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="itemVeg">
+                        <span class="veg-indicator"></span> Vegetarian
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="itemSpicy">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2c1.1 0 2 .9 2 2v2c3.31 0 6 2.69 6 6 0 1.85-.84 3.51-2.16 4.61L17 22H7l-.84-5.39C4.84 15.51 4 13.85 4 12c0-3.31 2.69-6 6-6V4c0-1.1.9-2 2-2z"/>
+                        </svg>
+                        Spicy
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="itemAvailable" checked>
+                        Available
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" id="menuModalCancel">Cancel</button>
+                    <button type="submit" class="submit-btn">Save Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Offer Modal -->
+    <div class="modal-overlay" id="offerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="offerModalTitle">Add Offer</h2>
+                <button class="modal-close" id="offerModalClose">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6 6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            <form class="modal-form" id="offerForm">
+                <input type="hidden" id="offerId">
+                <div class="form-group">
+                    <label>Offer Text</label>
+                    <input type="text" id="offerText" placeholder="e.g., 20% off on all desserts!" required>
+                </div>
+                <div class="form-group">
+                    <label>Banner Image URL</label>
+                    <input type="url" id="offerImage" placeholder="https://example.com/banner.jpg">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" id="offerModalCancel">Cancel</button>
+                    <button type="submit" class="submit-btn">Save Offer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="supabase.js"></script>
+    <script type="module" src="firebase-service.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

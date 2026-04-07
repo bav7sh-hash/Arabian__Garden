@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madurai Military Hotel - Kitchen Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="kitchen-body">
+    <!-- Kitchen Header -->
+    <header class="kitchen-header">
+        <div class="kitchen-header-content">
+            <div class="kitchen-logo">
+                <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 12px; color: inherit;">
+                    <img src="/images/logo.jpg" alt="Madurai Military Hotel" style="height: 44px; border-radius: 6px; box-shadow: var(--shadow-sm);">
+                    <span class="logo-text">Savoria</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <a href="kitchen.html" class="nav-link active">Kitchen</a>
+                <a href="index.html" class="nav-link">Menu</a>
+                <a href="admin.html" class="nav-link">Admin</a>
+            </nav>
+            <div class="kitchen-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="pendingCount">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="preparingCount">0</span>
+                    <span class="stat-label">Preparing</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="readyCount">0</span>
+                    <span class="stat-label">Ready</span>
+                </div>
+            </div>
+            <div class="kitchen-time" id="kitchenTime">--:--:--</div>
+        </div>
+    </header>
+
+    <!-- Filter Tabs -->
+    <nav class="kitchen-tabs">
+        <button class="kitchen-tab active" data-status="all">
+            All Orders
+            <span class="tab-count" id="allCount">0</span>
+        </button>
+        <button class="kitchen-tab" data-status="pending">
+            Pending
+            <span class="tab-count" id="pendingTabCount">0</span>
+        </button>
+        <button class="kitchen-tab" data-status="preparing">
+            Preparing
+            <span class="tab-count" id="preparingTabCount">0</span>
+        </button>
+        <button class="kitchen-tab" data-status="ready">
+            Ready
+            <span class="tab-count" id="readyTabCount">0</span>
+        </button>
+    </nav>
+
+    <!-- Orders Grid -->
+    <main class="kitchen-main">
+        <div class="orders-grid" id="ordersGrid">
+            <!-- Orders will be loaded dynamically -->
+        </div>
+        <div class="no-orders" id="noOrders">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                <path d="M8 12h8"/>
+            </svg>
+            <h2>No orders yet</h2>
+            <p>New orders will appear here in real-time</p>
+        </div>
+    </main>
+
+    <!-- Audio for notifications -->
+    <audio id="notificationSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2teleRM3i9LnqmkjLHW/38CJRzFtrd" type="audio/wav">
+    </audio>
+
+    <script src="supabase.js"></script>
+    <script type="module" src="firebase-service.js"></script>
+    <script src="kitchen.js"></script>
+</body>
+</html>
